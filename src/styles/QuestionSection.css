@@ -1,0 +1,18 @@
+.question-section{
+    padding: 60px 0;
+    background-color: #2F4858;
+}
+.faq-section {
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .faq-section h1 {
+    font-weight: bold;
+    color: #f5f5f5;
+  }
+  
+  .faq-section h5 {
+    color: #f5f5f5;
+  }
+  
