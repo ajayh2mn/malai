@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
-import "../styles/EighthSection.css";
+import { Container, Row, Col, Form, Button, Toast, ToastContainer } from "react-bootstrap";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
+import "../styles/EighthSection.css";
 
 const EighthSection = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [showAlreadySubmittedMessage, setShowAlreadySubmittedMessage] =
-    useState(false);
+  const [showAlreadySubmittedMessage, setShowAlreadySubmittedMessage] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -21,12 +20,12 @@ const EighthSection = () => {
 
     try {
       const response = await fetch(
-        "https://dc58-157-49-199-123.ngrok-free.app/postcontact",
+        "https://c91c-2409-408d-3d94-8ba3-a98a-b105-3039-86b3.ngrok-free.app/postcontact",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
             "ngrok-skip-browser-warning": "98547",
           },
           body: JSON.stringify({ contact: mobileNumber }),
@@ -51,33 +50,46 @@ const EighthSection = () => {
 
   return (
     <div className="banner-section">
-      {showSuccessMessage && (
-        <Alert variant="success" className="fixed-message">
-          <FaCheckCircle className="me-2" /> We will contact you soon!
-        </Alert>
-      )}
+      {/* Toast Messages */}
+      <ToastContainer position="top-center" className="p-3">
+        {showSuccessMessage && (
+          <Toast bg="success" onClose={() => setShowSuccessMessage(false)} delay={3000} autohide>
+            <Toast.Header>
+              <FaCheckCircle className="me-2 text-success" />
+              <strong className="me-auto">Success</strong>
+            </Toast.Header>
+            <Toast.Body className="text-white">We will contact you soon!</Toast.Body>
+          </Toast>
+        )}
 
-      {showAlreadySubmittedMessage && (
-        <Alert variant="warning" className="fixed-message">
-          <FaExclamationTriangle className="me-2" /> Your number is already
-          stored. We will contact you soon!
-        </Alert>
-      )}
+        {showAlreadySubmittedMessage && (
+          <Toast bg="warning" onClose={() => setShowAlreadySubmittedMessage(false)} delay={3000} autohide>
+            <Toast.Header>
+              <FaExclamationTriangle className="me-2 text-warning" />
+              <strong className="me-auto">Notice</strong>
+            </Toast.Header>
+            <Toast.Body className="text-dark">Your number is already stored. We will contact you soon!</Toast.Body>
+          </Toast>
+        )}
 
-      {error && (
-        <Alert variant="danger" className="fixed-message">
-          <FaExclamationTriangle className="me-2" /> {error}
-        </Alert>
-      )}
+        {error && (
+          <Toast bg="danger" onClose={() => setError("")} delay={3000} autohide>
+            <Toast.Header>
+              <FaExclamationTriangle className="me-2 text-danger" />
+              <strong className="me-auto">Error</strong>
+            </Toast.Header>
+            <Toast.Body className="text-white">{error}</Toast.Body>
+          </Toast>
+        )}
+      </ToastContainer>
 
       <div className="banner-overlay">
         <Container>
-          <Row className="align-items-center">
-            <Col md={6} className="banner-content">
+          <Row className="align-items-center justify-content-center">
+            <Col md={8} lg={6} className="banner-content text-center">
               <h1>Reliable Borewell Solutions for Your Water Needs</h1>
               <h5>
-                From Borewell Drilling to Groundwater Solutions, our
-                precision-led, expertise-driven approach ensures sustainable
+                From Borewell Drilling to Groundwater Solutions, our expertise-driven approach ensures sustainable
                 water access for your needs.
               </h5>
               <Form className="contact-sec" onSubmit={handleSubmit}>
@@ -93,16 +105,9 @@ const EighthSection = () => {
                     }}
                     isInvalid={!!error}
                   />
-                  <Button
-                    variant="primary"
-                    className="contact-button"
-                    type="submit"
-                  >
+                  <Button variant="primary" className="contact-button" type="submit">
                     Contact Us
                   </Button>
-                  <Form.Control.Feedback type="invalid">
-                    {error}
-                  </Form.Control.Feedback>
                 </Form.Group>
               </Form>
             </Col>

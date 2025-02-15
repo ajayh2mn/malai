@@ -40,7 +40,6 @@ function App() {
                 <EighthSection />
                 <Map />
                 <QuestionSection />
-
               </>
             }
           />
@@ -48,12 +47,12 @@ function App() {
           <Route path="/Services" element={<Services />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Pricing" element={<Pricing />} />
-          <Route path="/AdminDashboard" element={<AdminDashboard />} />
           <Route path="/ImageUpload" element={<ImageUpload />} />
           <Route path="/VideoUpload" element={<VideoUpload />} />
-
+          <Route path="/AdminDashboard" element={<AdminDashboard />} />
         </Routes>
-        <Footer />
+        {/* Exclude Footer for AdminDashboard */}
+        {!window.location.pathname.includes("/AdminDashboard") && <Footer />}
       </div>
     </Router>
   );

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Alert, Card, Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FaUpload, FaImage } from "react-icons/fa";
 
 const ImageUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   // Handle file selection
   const handleFileChange = (event) => {
@@ -15,25 +17,27 @@ const ImageUpload = () => {
     if (file) {
       setSelectedFile(file);
       setPreview(URL.createObjectURL(file));
+      setError(""); // Clear any previous errors
     }
   };
 
   // Handle image upload
   const handleUpload = async () => {
     if (!selectedFile) {
-      setMessage("Please select an image first.");
+      setError("Please select an image first.");
       return;
     }
 
     setUploading(true);
     setMessage("");
+    setError("");
 
     const formData = new FormData();
     formData.append("image", selectedFile);
 
     try {
       const response = await axios.post(
-        "https://43ae-2401-4900-9163-fde2-e0b3-b76b-c8ef-c93a.ngrok-free.app/bore/image/",
+        "https://c91c-2409-408d-3d94-8ba3-a98a-b105-3039-86b3.ngrok-free.app/postimage",
         formData,
         {
           headers: {
@@ -47,7 +51,7 @@ const ImageUpload = () => {
       setMessage("Image uploaded successfully!");
       console.log("Upload Response:", response.data);
     } catch (error) {
-      setMessage("Failed to upload image. Please try again.");
+      setError("Failed to upload image. Please try again.");
       console.error("Upload Error:", error);
     } finally {
       setUploading(false);
@@ -56,34 +60,65 @@ const ImageUpload = () => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="card p-4 shadow-lg" style={{ maxWidth: "400px", width: "100%" }}>
-        <h3 className="text-center">Upload Image</h3>
-        <label className="btn btn-primary w-100 mt-3">
-          Choose File
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            className="d-none"
-          />
-        </label>
-        {preview && (
-          <img
-            src={preview}
-            alt="Preview"
-            className="img-fluid mt-3 rounded"
-            style={{ maxHeight: "250px" }}
-          />
-        )}
-        <button
-          className="btn btn-success w-100 mt-3"
-          onClick={handleUpload}
-          disabled={uploading}
-        >
-          {uploading ? <Spinner animation="border" size="sm" /> : "Upload"}
-        </button>
-        {message && <p className="text-center mt-3 text-muted">{message}</p>}
-      </div>
+      <Card className="shadow-lg" style={{ maxWidth: "500px", width: "100%" }}>
+        <Card.Body>
+          <Card.Title className="text-center mb-4">
+            <FaImage className="me-2" />
+            Upload Image
+          </Card.Title>
+
+          <Form>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label className="btn btn-primary w-100">
+                <FaUpload className="me-2" />
+                Choose File
+                <Form.Control
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="d-none"
+                />
+              </Form.Label>
+            </Form.Group>
+
+            {preview && (
+              <div className="text-center mb-3">
+                <img
+                  src={preview}
+                  alt="Preview"
+                  className="img-fluid rounded"
+                  style={{ maxHeight: "250px" }}
+                />
+              </div>
+            )}
+
+            <Button
+              variant="success"
+              className="w-100 mb-3"
+              onClick={handleUpload}
+              disabled={uploading || !selectedFile}
+            >
+              {uploading ? (
+                <Spinner animation="border" size="sm" />
+              ) : (
+                "Upload"
+              )}
+            </Button>
+
+            {message && (
+              <Alert variant="success" className="text-center">
+                {message}
+              </Alert>
+            )}
+
+            {error && (
+              <Alert variant="danger" className="text-center">
+                {error}
+              </Alert>
+            )}
+          </Form>
+        </Card.Body>
+      </Card>
     </div>
   );
 };
