@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
-import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
+import { FaCheckCircle, FaExclamationTriangle, FaWhatsapp } from "react-icons/fa";
 import "../styles/Contact.css";
 
 const Contact = () => {
@@ -47,6 +47,14 @@ const Contact = () => {
     } catch (err) {
       setError("Network error. Please check your connection and try again.");
     }
+  };
+
+  const handleDial = () => {
+    window.location.href = "tel:+918489946930";
+  };
+
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/918489946930", "_blank");
   };
 
   return (
@@ -107,9 +115,17 @@ const Contact = () => {
                 {error}
               </Form.Control.Feedback>
             </Form.Group>
-            <Button type="submit" className="contact-us-btn">
-              Contact us
-            </Button>
+            <div className="d-flex gap-2 mt-3">
+              <Button type="submit" className="contact-us-btn">
+                Contact us
+              </Button>
+              <Button variant="success" onClick={handleDial}>
+                Dial to Phone
+              </Button>
+              <Button variant="success" className="whatsapp-btn" onClick={handleWhatsApp}>
+                <FaWhatsapp className="me-1" /> WhatsApp
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>
