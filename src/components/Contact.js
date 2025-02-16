@@ -21,7 +21,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "https://dc58-157-49-199-123.ngrok-free.app/postcontact",
+        "https://db88-2409-408d-3d94-8ba3-3949-915d-35c5-49e9.ngrok-free.app/postcontact",
         {
           method: "POST",
           headers: {

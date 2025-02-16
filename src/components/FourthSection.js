@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/FourthSection.css";
 
@@ -7,13 +8,14 @@ const FourthSection = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   // Fetch images from API
   useEffect(() => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          "https://43ae-2401-4900-9163-fde2-e0b3-b76b-c8ef-c93a.ngrok-free.app/bore/image/",
+          "https://db88-2409-408d-3d94-8ba3-3949-915d-35c5-49e9.ngrok-free.app/getimage",
           {
             headers: {
               Accept: "application/json",
@@ -22,26 +24,24 @@ const FourthSection = () => {
           }
         );
 
-        console.log("API Response:", response.data); // Log the API response
+        console.log("API Response:", response.data);
 
         if (Array.isArray(response.data) && response.data.length > 0) {
           const fullUrls = response.data.map(
             (img) =>
-              `https://43ae-2401-4900-9163-fde2-e0b3-b76b-c8ef-c93a.ngrok-free.app/${img}`
+              `https://db88-2409-408d-3d94-8ba3-3949-915d-35c5-49e9.ngrok-free.app/${img}`
           );
 
-          console.log("Final Image URLs:", fullUrls); // Log final image URLs
+          console.log("Final Image URLs:", fullUrls);
           setImages(fullUrls);
         } else {
           setError("No images found.");
         }
-
-        setLoading(false);
       } catch (err) {
         console.error("Error fetching images:", err);
         setError("Failed to load images.");
-        setLoading(false);
       }
+      setLoading(false);
     };
 
     fetchImages();
@@ -59,7 +59,7 @@ const FourthSection = () => {
             <Carousel.Item key={index}>
               <div className="slide-container">
                 <img
-                  src={`https://8044-59-97-51-97.ngrok-free.app/${image}`}
+                  src={image}
                   className="slider-image"
                   alt={`Borewell Service Slide ${index + 1}`}
                 />
@@ -78,7 +78,7 @@ const FourthSection = () => {
           Showcasing our expert borewell drilling process for reliable water
           access.
         </p>
-        <button className="cta-button">
+        <button className="cta-button" onClick={() => navigate("/contact")}>
           Contact for your water solutions today
         </button>
       </div>

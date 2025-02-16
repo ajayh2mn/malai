@@ -26,7 +26,7 @@ const Header = () => {
             <Nav.Link href="./Services" className="nav-link">
               Services
             </Nav.Link>
-            <Nav.Link href="/Pricing" className="nav-link">
+            <Nav.Link href="./Pricing" className="nav-link">
               Pricing
             </Nav.Link>
             <Nav.Link href="./Contact" className="nav-link">
@@ -35,7 +35,6 @@ const Header = () => {
           </Nav>
 
           {/* Right Button */}
-          <button className="get-in-touch-button">Get in Touch</button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
