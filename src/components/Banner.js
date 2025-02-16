@@ -20,7 +20,7 @@ const Banner = () => {
 
     try {
       const response = await fetch(
-        "https://c91c-2409-408d-3d94-8ba3-a98a-b105-3039-86b3.ngrok-free.app/postcontact",
+        "https://db88-2409-408d-3d94-8ba3-3949-915d-35c5-49e9.ngrok-free.app/postcontact",
         {
           method: "POST",
           headers: {
@@ -86,7 +86,7 @@ const Banner = () => {
       <div className="banner-overlay">
         <Container>
           <Row className="align-items-center justify-content-center">
-            <Col md={8} lg={6} className="banner-content text-center">
+            <Col md={8} lg={6} className="banner-content text-center ">
               <h1>Reliable Borewell Solutions for Your Water Needs</h1>
               <h5>
                 From Borewell Drilling to Groundwater Solutions, our expertise-driven approach ensures sustainable

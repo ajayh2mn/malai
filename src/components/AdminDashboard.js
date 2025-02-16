@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     const fetchContacts = async () => {
       try {
         const response = await axios.get(
-          "https://c91c-2409-408d-3d94-8ba3-a98a-b105-3039-86b3.ngrok-free.app/getcontact",
+          "https://db88-2409-408d-3d94-8ba3-3949-915d-35c5-49e9.ngrok-free.app/getcontact",
           {
             headers: {
               Accept: "application/json",

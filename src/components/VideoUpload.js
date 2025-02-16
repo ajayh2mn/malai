@@ -33,7 +33,7 @@ const VideoUpload = () => {
 
     try {
       const response = await axios.post(
-        "https://c91c-2409-408d-3d94-8ba3-a98a-b105-3039-86b3.ngrok-free.app/postvideo", // Change to your actual API URL
+        "https://db88-2409-408d-3d94-8ba3-3949-915d-35c5-49e9.ngrok-free.app/postvideo", // Change to your actual API URL
         formData,
         {
           headers: {
@@ -71,11 +71,7 @@ const VideoUpload = () => {
         style={styles.fileInput}
       />
       {preview && (
-        <video
-          width="100%"
-          controls
-          style={styles.videoPreview}
-        >
+        <video width="100%" controls style={styles.videoPreview}>
           <source src={preview} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
