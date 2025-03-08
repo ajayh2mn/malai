@@ -99,16 +99,27 @@
   @media (max-width: 768px) {
     .footer-social {
       flex-direction: column;
-      text-align: center;
-    }
-  
-    .social-icons {
-      justify-content: center;
-      margin-bottom: 10px;
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
     }
   
     .contact-number {
-      text-align: center;
+      text-align: left !important;
+      font-size: 14px;
+      white-space: nowrap;
+      display: block;
+      width: 100%;
+      margin-top: 5px; /* Adjust spacing */
+      font-weight: bold;
+      padding-left: 10px; /* Moves it slightly to the left */
+    }
+  
+    .social-icons {
+      justify-content: flex-start;
+      margin-top: 10px;
     }
   }
+  
+  
   

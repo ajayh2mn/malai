@@ -8,7 +8,7 @@ const Footer = () => {
       <Container>
         <Row className="footer-container">
           <Col md={4} sm={12} className="footer-left">
-            <div className="logo">LOGO</div>
+            {/* <div className="logo">LOGO</div> */}
             <div className="contact-information">
               <p>
                 <i className="fas fa-envelope"></i> malaagencybore@gmail.com
@@ -53,29 +53,30 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className="footer-social">
-          <Col md={6} sm={12}>
-            <div className="stay-connected">Stay Connected</div>
-          </Col>
-          <Col md={6} sm={12} className="d-flex justify-content-between">
-            <div className="social-icons">
-              <a href="/" className="social-icon">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="/" className="social-icon">
-                <i className="fab fa-whatsapp"></i>
-              </a>
-              <a href="/" className="social-icon">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-            </div>
-            <div className="contact-number">
-              <i className="fas fa-phone"></i> 8489496930, 9585842316
-            </div>
-          </Col>
-        </Row>
+  <Col sm={12}>
+    <div className="stay-connected">Stay Connected</div>
+  </Col>
+  <Col sm={12} className="d-flex flex-column align-items-start">
+    <div className="contact-number">
+      <i className="fas fa-phone"></i> 8489496930, 9585842316
+    </div>
+    <div className="social-icons">
+      <a href="/" className="social-icon">
+        <i className="fab fa-instagram"></i>
+      </a>
+      <a href="/" className="social-icon">
+        <i className="fab fa-whatsapp"></i>
+      </a>
+      <a href="/" className="social-icon">
+        <i className="fab fa-facebook-f"></i>
+      </a>
+    </div>
+  </Col>
+</Row>
       </Container>
     </footer>
   );
 };
 
 export default Footer;
+ 

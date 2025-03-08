@@ -4,7 +4,7 @@ import "../styles/SixthSection.css"; // Importing CSS file for custom styling
 
 const testimonials = [
   {
-    img: "https://profile.justdial.com/profileImg?i=VDlZbgo904fdRjsP35ivXUh2NFDQcQKBYr3CZv9c%2Bow%3D",
+    img: "https://files.oaiusercontent.com/file-9ihBUSypoFhiYwcTkLBgdy?se=2025-03-08T18%3A42%3A21Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Db627dc07-eed1-4df9-8179-28e37dad1af2.webp&sig=09PoioGZnDTsL0t%2B5MHv1do2YzM/WgDcFmlo/cOZCCc%3D",
     text: "Malai Borewells provides excellent repair and services for borewells at a reasonable price. Their team is highly skilled and professional, ensuring a quick and efficient solution to all your borewell issues.",
     name: "Bala Chandru",
   },
