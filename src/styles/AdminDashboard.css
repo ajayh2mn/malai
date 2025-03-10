@@ -3,6 +3,7 @@
   display: flex;
   height: 100vh;
   margin-top: 77px;
+  background-color: #f5f7fa; /* Light background for the entire dashboard */
 }
 
 /* Sidebar */
@@ -14,6 +15,7 @@
   flex-direction: column;
   padding: 20px;
   border-radius: 0 25px 25px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
 
 .logo {
@@ -37,7 +39,7 @@
   cursor: pointer;
   border-radius: 8px;
   margin-bottom: 10px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menu-item i {
@@ -47,59 +49,72 @@
 .menu-item.active,
 .menu-item:hover {
   background-color: #2a5aa8;
+  transform: translateX(5px); /* Slight hover effect */
 }
 
 /* Main Content */
 .main-content {
   flex-grow: 1;
-  padding: 20px;
+  padding: 30px;
   background-color: white;
   border-radius: 25px 0 0 25px;
   overflow-y: auto;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
 
 .dashboard-header {
   text-align: left;
+  margin-bottom: 30px;
 }
 
 .dashboard-header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
+  color: #2c3e50; /* Darker text for better contrast */
 }
 
 .dashboard-header p {
   margin: 5px 0;
-  color: #555;
+  color: #7f8c8d; /* Lighter text for subheading */
+  font-size: 16px;
 }
 
 .recent-messages h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50; /* Darker text for headings */
 }
 
 .messages-table {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .message-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
-  background: rgba(59, 115, 209, 0.1);
+  padding: 20px;
+  background: white;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-2px); /* Slight hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .message-id {
   font-size: 18px;
   font-weight: bold;
+  color: #3b73d1; /* Use primary color for IDs */
 }
 
 .person-icon {
-  color: #555;
+  color: #7f8c8d; /* Lighter icon color */
   font-size: 24px;
 }
 
@@ -107,57 +122,44 @@
   flex: 1;
   margin-left: 15px;
   font-size: 18px;
+  color: #34495e; /* Darker text for better readability */
 }
 
-.call-now-btn {
+.contact-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.call-now-btn,
+.copy-number-btn {
   display: flex;
   align-items: center;
   padding: 10px 15px;
-  background-color: #28a745;
-  color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.call-now-btn i {
-  margin-right: 5px;
+.call-now-btn {
+  background-color: #28a745;
+  color: white;
 }
 
 .call-now-btn:hover {
   background-color: #218838;
+  transform: scale(1.05); /* Slight hover effect */
 }
 
-.upload-section {
-  margin-top: 20px;
-}
-
-.upload-section h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.upload-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.upload-btn {
-  padding: 10px 15px;
+.copy-number-btn {
   background-color: #3b73d1;
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.upload-btn:hover {
+.copy-number-btn:hover {
   background-color: #2a5aa8;
+  transform: scale(1.05); /* Slight hover effect */
 }
 
 /* Responsive Styles */
@@ -169,26 +171,65 @@
   .sidebar {
     width: 100%;
     border-radius: 0;
+    padding: 15px;
   }
 
   .main-content {
     border-radius: 0;
-    padding: 15px;
+    padding: 20px;
   }
 
   .message-card {
     flex-wrap: wrap;
     gap: 10px;
+    padding: 15px;
   }
 
   .contact-number {
     flex: none;
     width: 100%;
     text-align: center;
+    margin-left: 0;
   }
 
-  .call-now-btn {
+  .contact-actions {
     width: 100%;
     justify-content: center;
+  }
+
+  .call-now-btn,
+  .copy-number-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 28px;
+  }
+
+  .dashboard-header p {
+    font-size: 14px;
+  }
+
+  .recent-messages h2 {
+    font-size: 20px;
+  margin-bottom: 15px;
+  }
+
+  .message-card {
+    padding: 10px;
+  }
+
+  .message-id,
+  .contact-number {
+    font-size: 16px;
+  }
+
+  .call-now-btn,
+  .copy-number-btn {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }
