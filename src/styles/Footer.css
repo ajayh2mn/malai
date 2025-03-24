@@ -95,7 +95,7 @@
   .contact-number i {
     margin-right: 5px;
   }
-  
+    
   @media (max-width: 768px) {
     .footer-social {
       flex-direction: column;

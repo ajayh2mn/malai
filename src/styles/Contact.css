@@ -44,11 +44,11 @@
     color: #00aaff;
   }
   
-  .social-icons {
+  .social-icons1 {
     margin-top: 20px;
   }
   
-  .social-icons i {
+  .social-icons1 i {
     margin-right: 10px;
     color: white;
     font-size: 20px;
@@ -56,7 +56,7 @@
     transition: color 0.3s ease;
   }
   
-  .social-icons i:hover {
+  .social-icons1 i:hover {
     color: #00aaff;
   }
   

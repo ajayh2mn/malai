@@ -90,7 +90,7 @@ const Contact = () => {
               605110, India
             </li>
           </ul>
-          <div className="social-icons">
+          <div className="social-icons1">
             <i className="fab fa-facebook-f"></i>
             <i className="fab fa-twitter"></i>
             <i className="fab fa-instagram"></i>
@@ -100,7 +100,7 @@ const Contact = () => {
           <h3>Contact Us</h3>
           <p>Any questions or remarks? Just write us a message!</p>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="mobileNumber">
+            {/* <Form.Group controlId="mobileNumber">
               <Form.Control
                 type="text"
                 placeholder="Mobile Number"
@@ -114,11 +114,11 @@ const Contact = () => {
               <Form.Control.Feedback type="invalid">
                 {error}
               </Form.Control.Feedback>
-            </Form.Group>
+            </Form.Group> */}
             <div className="d-flex gap-2 mt-3">
-              <Button type="submit" className="contact-us-btn">
+              {/* <Button type="submit" className="contact-us-btn">
                 Contact us
-              </Button>
+              </Button> */}
               <Button variant="success" onClick={handleDial}>
                 Dial to Phone
               </Button>

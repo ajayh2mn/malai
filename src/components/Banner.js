@@ -48,6 +48,10 @@ const Banner = () => {
     }
   };
 
+  const handleDial = () => {
+    window.location.href = "tel:+918489946930";
+  };
+
   return (
     <div className="banner-section">
       {/* Toast Messages */}
@@ -93,7 +97,7 @@ const Banner = () => {
                 water access for your needs.
               </h5>
               <Form className="contact-sec" onSubmit={handleSubmit}>
-                <Form.Group controlId="mobileNumber" className="d-flex">
+                {/* <Form.Group controlId="mobileNumber" className="d-flex">
                   <Form.Control
                     type="text"
                     placeholder="Enter Mobile Number"
@@ -105,10 +109,11 @@ const Banner = () => {
                     }}
                     isInvalid={!!error}
                   />
-                  <Button variant="primary" className="contact-button" type="submit">
-                    Contact Us
+                  
+                </Form.Group> */}
+                <Button variant="primary" className="contact-button" onClick={handleDial}>
+                    Contact Now
                   </Button>
-                </Form.Group>
               </Form>
             </Col>
           </Row>
