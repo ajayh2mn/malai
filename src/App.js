@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import { FaWhatsapp } from 'react-icons/fa'; // Import WhatsApp icon
 import Header from './components/Header'; // Adjust the path based on your folder structure
 import Banner from './components/Banner';
 import ThirdSection from './components/ThirdSection';
@@ -53,7 +54,40 @@ function App() {
         </Routes>
         {/* Exclude Footer for AdminDashboard */}
         {!window.location.pathname.includes("/AdminDashboard") && <Footer />}
+
+        {/* WhatsApp Floating Button */}
+        <a
+          href="https://wa.me/918489496930"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-button"
+        >
+          <FaWhatsapp size={40} color="white" />
+        </a>
       </div>
+
+      {/* WhatsApp Button CSS */}
+      <style>
+        {`
+          .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+          .whatsapp-button:hover {
+            background-color: #1ebe57;
+          }
+        `}
+      </style>
     </Router>
   );
 }

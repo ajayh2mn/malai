@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
-import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
+import { FaCheckCircle, FaExclamationTriangle, FaWhatsapp } from "react-icons/fa";
 import "../styles/Contact.css";
 
 const Contact = () => {
@@ -49,6 +49,14 @@ const Contact = () => {
     }
   };
 
+  const handleDial = () => {
+    window.location.href = "tel:+918489946930";
+  };
+
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/918489946930", "_blank");
+  };
+
   return (
     <Container fluid className="contact-container">
       {showSuccessMessage && (
@@ -82,7 +90,7 @@ const Contact = () => {
               605110, India
             </li>
           </ul>
-          <div className="social-icons">
+          <div className="social-icons1">
             <i className="fab fa-facebook-f"></i>
             <i className="fab fa-twitter"></i>
             <i className="fab fa-instagram"></i>
@@ -92,7 +100,7 @@ const Contact = () => {
           <h3>Contact Us</h3>
           <p>Any questions or remarks? Just write us a message!</p>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="mobileNumber">
+            {/* <Form.Group controlId="mobileNumber">
               <Form.Control
                 type="text"
                 placeholder="Mobile Number"
@@ -106,10 +114,18 @@ const Contact = () => {
               <Form.Control.Feedback type="invalid">
                 {error}
               </Form.Control.Feedback>
-            </Form.Group>
-            <Button type="submit" className="contact-us-btn">
-              Contact us
-            </Button>
+            </Form.Group> */}
+            <div className="d-flex gap-2 mt-3">
+              {/* <Button type="submit" className="contact-us-btn">
+                Contact us
+              </Button> */}
+              <Button variant="success" onClick={handleDial}>
+                Dial to Phone
+              </Button>
+              <Button variant="success" className="whatsapp-btn" onClick={handleWhatsApp}>
+                <FaWhatsapp className="me-1" /> WhatsApp
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>

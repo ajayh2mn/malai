@@ -1,17 +1,19 @@
 import React from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import "../styles/SixthSection.css"; // Importing CSS file for custom styling
+import UserImage from "../assets/user-image1.jpeg"; // Importing local image
+import UserImage2 from "../assets/user-image2.jpeg";
 
 const testimonials = [
   {
-    img: "https://profile.justdial.com/profileImg?i=VDlZbgo904fdRjsP35ivXUh2NFDQcQKBYr3CZv9c%2Bow%3D",
+    img: UserImage,
     text: "Malai Borewells provides excellent repair and services for borewells at a reasonable price. Their team is highly skilled and professional, ensuring a quick and efficient solution to all your borewell issues.",
     name: "Bala Chandru",
   },
   {
-    img: "https://profile.justdial.com/profileImg?i=O0ZtzRiaYDPqxqxiOXFWFA%2BTjcUyQt%2BuUEe41%2BkBqoo%3D",
+    img: UserImage2,
     text: "I recently used Malai Borewells for a pump repair, and I was very impressed with their quick service. They arrived on time and fixed the issue efficiently. Excellent service overall!",
-    name: "Puducherry Travels",
+    name: "Naveen kumar",
   },
 ];
 
