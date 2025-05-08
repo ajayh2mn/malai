@@ -1,0 +1,134 @@
+.contact-container {
+    background: linear-gradient(to right, #ffffffcc, #000000cc), url('https://img.freepik.com/premium-photo/drilling-rig-repair-maintenance-preparation-drilling-operations-drilling-deep-wells-exploration-work-mineral-exploration-extraction-gas-oil_331695-8112.jpg?ga=GA1.1.1857534666.1690658127&semt=ais_hybrid') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-row {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .contact-info {
+    background: #33475b;
+    color: white;
+    padding: 30px;
+  }
+  
+  .contact-info h3 {
+    font-weight: bold;
+  }
+  
+  .contact-info p {
+    margin-bottom: 20px;
+  }
+  
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-info ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  
+  .contact-info ul li i {
+    margin-right: 10px;
+    color: #00aaff;
+  }
+  
+  .social-icons1 {
+    margin-top: 20px;
+  }
+  
+  .social-icons1 i {
+    margin-right: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons1 i:hover {
+    color: #00aaff;
+  }
+  
+  .contact-form {
+    padding: 30px;
+    text-align: left;
+  }
+  
+  .contact-form h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form p {
+    margin-bottom: 20px;
+  }
+  
+  .contact-form .form-control {
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form .contact-us-btn {
+    background-color: #007bff;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 30px;
+    border: none;
+  }
+  
+  .contact-form .or-text {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .action-buttons .show-number-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+  }
+  
+  .action-buttons .whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-buttons .whatsapp-btn i {
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-row {
+      flex-direction: column;
+    }
+  
+    .action-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
