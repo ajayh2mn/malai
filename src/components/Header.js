@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import Logo from "../assets/Exclude.png"; // Ensure this path is correct for your project
+import Logo from "../assets/malai_logo.png"; // Ensure this path is correct for your project
 import "../styles/Header.css";
 
 const Header = () => {
